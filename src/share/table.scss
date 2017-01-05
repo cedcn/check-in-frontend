@@ -1,0 +1,44 @@
+.t_header {
+  padding: 0 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.t_body {
+  padding: 0 10px;
+}
+
+.row {
+  border-bottom: 1px dashed  rgba(0, 0, 0, 0.15);
+  padding: 15px 10px;
+  display: flex;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  label {
+    color: #717171;
+    display: inline-block;
+    min-width: 80px;
+    text-align: right;
+  }
+}
+
+.col3 {
+  width: 100% / 3 * 1;
+}
+
+.col6 {
+  width: 100% / 3 * 2;
+}
+
+.col2 {
+  width: 100% / 2 * 1;
+}
+
+.value {
+  padding-left: 10px;
+  color: #000;
+  font-weight: bold;
+  display: inline;
+}

@@ -1,0 +1,41 @@
+:global {
+
+  html {
+    font-size: 10px;
+  }
+
+  body {
+    font-size: 1.6rem;
+    font-family: 'Noto Sans S Chinese', 'PingFang SC', 'Hack', 'Lantinghei SC', 'Microsoft Yahei', 'Arial', sans-serif;
+    background-color: #f5f5f5;
+  }
+
+  html,
+  body {
+
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .container {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
+  input {
+    &::-webkit-input-placeholder { /* WebKit browsers */
+      color: rgba(255, 153, 0, 0.2);
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color: rgba(255, 153, 0, 0.2);
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: rgba(255, 153, 0, 0.2);
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+      color: rgba(255, 153, 0, 0.2);
+    }
+  }
+}
