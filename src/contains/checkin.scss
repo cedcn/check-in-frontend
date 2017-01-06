@@ -6,8 +6,26 @@
 .inputWrapper {
   label {
     display: inline-block;
-    margin-bottom: 10px;
     font-size: 1.4rem;
     color: #ff9900;
+  }
+}
+
+.hint {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.day {
+  float: right;
+  text-shadow: 0 1px 0 #ccc;
+
+  b {
+    padding: 0 2px;
+    color: #fff;
+    font-size: 2rem;
+    text-shadow: none;
   }
 }

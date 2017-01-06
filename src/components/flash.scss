@@ -1,0 +1,35 @@
+.flash {
+  position: fixed;
+  max-width: 600px;
+  max-height: 100px;
+  box-sizing: border-box;
+  padding: 30px 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2.8rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  // background-color: rgba(0, 0, 0, 0.2);
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: all 0.3s;
+
+  &.open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.error {
+    background-color: rgba(255, 0, 0, 0.86);
+  }
+
+  &.success {
+    background-color: rgba(10, 157, 35, 0.88);
+  }
+}

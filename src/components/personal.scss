@@ -3,3 +3,85 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0.9);
 }
+
+.button {
+  display: inline-block;
+  width: 90px;
+  line-height: 2;
+  text-align: center;
+  // border: 1px solid #000;
+  color: #fff;
+  margin: 0 6px;
+  transition: opacity 0.2s;
+
+  &.checkin {
+    background-color: #2996ae;
+  }
+
+  &.uncheck {
+    background-color: #616161;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.unfold_button {
+  display: inline-block;
+  line-height: 2;
+  text-align: center;
+  margin-left: 6px;
+  color: #000;
+}
+
+.operate {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.add_gift_wraper {
+  position: relative;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.gift_list {
+  position: absolute;
+  z-index: 110;
+  top: 100%;
+  left: 50%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 5px 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 100px;
+  align-items: center;
+  visibility: hidden;
+  transition: all 0.2s;
+  transform: translateX(-50%);
+
+  a {
+    display: inline-block;
+    width: 100%;
+    line-height: 2;
+    border-bottom: 1px solid #eee;
+    color: #000;
+    text-align: center;
+
+    &:hover {
+      color: #2996ae;
+    }
+  }
+}
+
+.add_gift_wraper:hover {
+  .gift_list {
+    transition: all 0.2s;
+    visibility: visible;
+    opacity: 1;
+  }
+}

@@ -20,9 +20,9 @@ class Search extends Component {
 
     this.handleChange = ::this.handleChange;
 
-    Rx.Observable.create(observer => {
+    this.subscription = Rx.Observable.create(observer => {
       PubSub.subscribe('value change', (msg, data) => {
-        observer.next(data)
+        observer.next(data);
       })
     })
     .debounceTime(250)
@@ -37,10 +37,14 @@ class Search extends Component {
     this.setState({ value }, () => PubSub.publish('value change', value) );
   }
 
+  componentWillUnmount() {
+    this.subscription.unsubscribe();
+  }
+
   render() {
-    const userList = _.isEmpty(this.state.userList) ? <div>没有结果</div> : this.state.userList.map((item, index)=> {
+    const userList = _.isEmpty(this.state.userList) ? <div>没有结果!</div> : this.state.userList.map((item, index)=> {
       return (
-        <Personal {...item} key={index}/>
+        <Personal {...item} key={index} openFlash={this.props.openFlash}/>
       )
     });
 
@@ -50,8 +54,6 @@ class Search extends Component {
           <input className={INPUT.input} type="text" autoFocus autoComplete="off" value={this.state.value} placeholder="Keyword" onChange={this.handleChange} />
           {userList}
         </div>
-        {/* <a onClick={() => checkinCode('ffde0774-0337-43cc-9b7a-e97e0acc6271').then(data => console.log(data))}>签到</a> */}
-        {/* <a onClick={() => uncheckCode('ffde0774-0337-43cc-9b7a-e97e0acc6271').then(data => console.log(data))}>取消签到</a> */}
       </div>
     )
   }

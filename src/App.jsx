@@ -16,8 +16,8 @@ const routes = (
   <Route path="/" component={Wrapper}>
     <IndexRoute component={Checkin} />
     <Route path="/index" component={Checkin} />
-    <Route path="/admin" component={Admin} />
     <Route path="/search" component={Search} />
+    <Route path="/admin" component={Admin} />
   </Route>
 )
 
