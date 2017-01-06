@@ -5,7 +5,7 @@ import { hashHistory, Router, Route, IndexRoute } from 'react-router';
 
 import Wrapper from './components/Wrapper';
 import Personal from './components/Personal';
-import Checkin from './contains/Checkin';
+import CheckIn from './contains/CheckIn';
 import Search from './contains/Search';
 import Admin from './contains/Admin';
 
@@ -14,8 +14,8 @@ import './global.scss';
 
 const routes = (
   <Route path="/" component={Wrapper}>
-    <IndexRoute component={Checkin} />
-    <Route path="/index" component={Checkin} />
+    <IndexRoute component={CheckIn} />
+    <Route path="/index" component={CheckIn} />
     <Route path="/search" component={Search} />
     <Route path="/admin" component={Admin} />
   </Route>
