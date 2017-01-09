@@ -18,9 +18,16 @@ class Checkin extends Component {
     }
 
     this.toCheckin = ::this.toCheckin;
+    this.onChange = ::this.onChange;
 
     getToday().then(res => this.setState({ today: res.data.today }));
     if (props.location.query.uid) this.toCheckin(props.location.query.uid, true);
+  }
+
+  onChange(e) {
+    const { value } = e.target;
+    this.setState({ code: value });
+    if (value.length >= 36) this.toCheckin(e.target.value, false);
   }
 
   toCheckin(value, isUid) {
@@ -55,7 +62,7 @@ class Checkin extends Component {
             <label>* 扫码时-请确保焦点在输入框内</label>
             <div className={S_S_.day}>GIF-第<b>{this.state.today}</b>天</div>
           </div>
-          <input className={INPUT.input} type="text" autoFocus autoComplete="off" value={code} placeholder="Code" onChange={e => this.toCheckin(e.target.value, false)} />
+          <input className={INPUT.input} type="password" autoFocus autoComplete="off" value={code} placeholder="Code" onChange={this.onChange} />
         </div>
         <UserInfo {...userinfo} gifts={this.state.gifts} />
       </div>
