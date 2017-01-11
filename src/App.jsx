@@ -8,6 +8,7 @@ import Personal from './components/Personal';
 import CheckIn from './contains/CheckIn';
 import Search from './contains/Search';
 import Admin from './contains/Admin';
+import Meta from './contains/Meta';
 
 import 'normalize.css';
 import './global.scss';
@@ -18,6 +19,7 @@ const routes = (
     <Route path="/index" component={CheckIn} />
     <Route path="/search" component={Search} />
     <Route path="/admin" component={Admin} />
+    <Route path="/meta" component={Meta} />
   </Route>
 )
 

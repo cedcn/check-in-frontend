@@ -1,5 +1,5 @@
 const config = {
-  giftList: ['礼物一', '礼物二', '礼物三', '礼物四', ]
+  giftList: ['集印章', '朋友圈', '发微博']
 }
 
 export default config;

@@ -34,7 +34,7 @@ class Search extends Component {
 
   handleChange(e) {
     const { value } = e.target;
-    this.setState({ value }, () => PubSub.publish('value change', value) );
+    this.setState({ value }, () => PubSub.publish('value change', value));
   }
 
   componentWillUnmount() {

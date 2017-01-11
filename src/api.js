@@ -17,7 +17,8 @@ export const search = keyword => get(`/api/search/${keyword}/`);
 export const giftAvailable = uid => get(`/api/gift/for/${uid}/available`);
 export const checkoutGift = (uid, gift) => get(`/api/gift/checkout/${uid}/${gift}`);
 export const uncheckGift = (uid, gift) => get(`/api/gift/uncheck/${uid}/${gift}`);
+export const getMeta = () => get('/api/meta');
 
-// admin TODO
+// admin
 export const setToday = day => get(`/admin/set_today/${day}`);
 export const getToday = () => get('/admin/today');

@@ -5,6 +5,7 @@ const path = require('path');
 config.devServer = {
   inline: true,
   port: 9000,
+  host: '0.0.0.0',
   proxy: {
     '/api': 'http://127.0.0.1:8000/',
     '/admin': 'http://127.0.0.1:8000/'
