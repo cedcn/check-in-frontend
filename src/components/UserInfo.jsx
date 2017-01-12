@@ -2,6 +2,21 @@ import React, { Component } from 'react';
 import S_S_ from './user_info.scss';
 import TABLE from '../share/table.scss';
 
+const transfromDay = str => {
+  switch (str) {
+    case '1':
+      return '13';
+    case '2':
+      return '14';
+    case '3':
+      return '15';
+    case '1,2,3':
+      return '13, 14, 15';
+    default:
+      return '';
+  }
+}
+
 class UserInfo extends Component {
   render() {
     const { name, phone, company, position, email, checked_at, tickets, gifts } = this.props;
@@ -12,11 +27,23 @@ class UserInfo extends Component {
       return result;
     }, {});
 
-    const ticketNames = !_.isEmpty(ticketsInfo) ? ticketsInfo.ticketNames.join(', ') : '';
+    const ticketNames = !_.isEmpty(ticketsInfo) ?
+                        ticketsInfo.ticketNames.map((item, index) => {
+                          return (
+                            <span className={`${S_S_.ticket} ${item === '极客体验票' ? S_S_.exp : ''}`}>{item}</span>
+                          )
+                        }) : '';
     const days = !_.isEmpty(ticketsInfo) ?
                   _.orderBy(ticketsInfo.days, 'day', 'asc')
-                    .map(item => `${item.day}-(${item.isSeat ? '有座' : '无座'})`)
-                    .join(', ') : '';
+                    .map((item, index) => {
+                      return (
+                        <span key={index} className={item.isSeat ? S_S_.hasSeat : S_S_.noSeat}>
+                          <span>{transfromDay(item.day)}</span>
+                          <span>-</span>
+                          <span>{item.isSeat ? '(有座)' : '(无座)'}</span>
+                        </span>
+                      )
+                    }): '';
 
     return (
       <div className={S_S_.user_info}>

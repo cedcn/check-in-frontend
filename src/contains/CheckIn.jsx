@@ -35,7 +35,7 @@ class Checkin extends Component {
     fun(value)
       .then(res => {
         if (!res.data.ok) {
-          this.setState({ userinfo: [], code: '' });
+          this.setState({ code: '' });
           throw res.data.error;
         }
         this.setState({ userinfo: res.data.ticket, code: '' });

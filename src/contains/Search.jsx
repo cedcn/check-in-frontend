@@ -3,6 +3,7 @@ import { search, checkinCode, uncheckCode } from '../api';
 import Rx from 'rxjs/Rx';
 import PubSub from 'pubsub-js';
 import _ from 'lodash';
+import UUID from 'uuid-js';
 
 import Personal from '../components/Personal';
 import S_S_ from './search.scss';
@@ -29,7 +30,7 @@ class Search extends Component {
     .map(v => v.trim() !== '' ? v.trim() : '水电费水电费水电费')
     .switchMap(v => search(v))
     .retry()
-    .subscribe(res => this.setState({ 'userList': res.data.results }))
+    .subscribe(res => this.setState({ userList: res.data.results }))
   }
 
   handleChange(e) {

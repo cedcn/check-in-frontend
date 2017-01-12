@@ -5,3 +5,23 @@
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
   font-size: 1.8rem;
 }
+
+
+.hasSeat {
+  color: #ff6a00;
+  margin-right: 12px;
+}
+
+.noSeat {
+  color: green;
+  margin-right: 12px;
+}
+
+.ticket {
+  margin-right: 12px;
+
+  &.exp {
+    color: #ae00e7;
+    border: 1px solid #ae00e7;
+  }
+}

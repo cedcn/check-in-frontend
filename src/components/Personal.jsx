@@ -11,11 +11,6 @@ class Personal extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      isChecked: !_.isNull(props.checked_at),
-      gifts: ''
-    }
-
     this.uncheck = ::this.uncheck;
     this.checkoutGift = ::this.checkoutGift;
   }
@@ -26,7 +21,6 @@ class Personal extends Component {
     uncheckUid(this.props.id)
       .then(res => {
         if (!res.data.ok) throw res.data.error;
-        this.setState({ isChecked: false });
         this.props.openFlash('success', `${this.props.name} - 已取消签到!`)
       })
       .catch(err => {
@@ -59,7 +53,7 @@ class Personal extends Component {
           </div>
           <div className={`${TABLE.col3} ${S_S_.operate}`}>
             {
-              !this.state.isChecked ?
+              _.isNull(this.props.checked_at) ?
               <Link className={`${S_S_.button} ${S_S_.checkin}`} to={`/index?uid=${id}`}>签到</Link> :
               <a href="javascript:;" className={`${S_S_.button} ${S_S_.uncheck}`} onClick={this.uncheck}>取消签到</a>
             }
